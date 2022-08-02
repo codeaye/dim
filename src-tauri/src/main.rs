@@ -2,15 +2,11 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
-
 #[cfg(target_os = "macos")]
 use cocoa::appkit::{NSWindow, NSWindowButton, NSWindowStyleMask, NSWindowTitleVisibility};
-
 #[cfg(target_os = "macos")]
 use objc::runtime::YES;
-
 use tauri::{Runtime, Window};
-
 #[cfg(target_os = "macos")]
 #[macro_use]
 extern crate objc;
@@ -103,5 +99,5 @@ fn main() {
         })
         .invoke_handler(generate_handler![gen_password])
         .run(tauri::generate_context!())
-        .expect("There was an error while running tauri application");
+        .expect("An error occured while running tauri application");
 }
