@@ -1,22 +1,26 @@
 {
   "build": {
     "devPath": "http://localhost:5173",
-    "beforeDevCommand": "cd frontend && pnpm dev",
-    "distDir": "../frontend/dist",
-    "beforeBuildCommand": "cd frontend && pnpm build"
+    "beforeDevCommand": "yarn dev",
+    "distDir": "../dist",
+    "beforeBuildCommand": "yarn build"
   },
   "package": {
-    "productName": "template",
+    "productName": "Dim",
     "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "all": false,
+      "window": {
+        "all": false,
+        "startDragging": true
+      }
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
+      "category": "Productivity",
+      "copyright": "@codeaye",
       "deb": {
         "depends": []
       },
@@ -28,9 +32,9 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
-      "shortDescription": "",
-      "longDescription": "",
+      "identifier": "com.nav.dev",
+      "shortDescription": "A handy little password generator",
+      "longDescription": "A handy little password generator",
       "resources": [],
       "targets": "all",
       "macOS": {
@@ -54,11 +58,11 @@
     },
     "windows": [
       {
-        "title": "Template",
-        "width": 800,
-        "height": 600,
+        "title": "Dim",
+        "width": 380,
+        "height": 310,
         "fullscreen": false,
-        "resizable": true
+        "resizable": false
       }
     ]
   }

@@ -1,8 +1,8 @@
 [package]
-name = "app"
-default-run = "app"
+name = "dim"
+default-run = "dim"
 version = "0.1.0"
-description = "A Tauri App"
+description = "A handy little password generator"
 authors = ["codeaye"]
 license = "MIT"
 
@@ -16,9 +16,20 @@ tauri-build = { version = "1.0.4", features = [] }
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.0.5", features = ["api-all"] }
-tauri-plugin-window-state = "0.1"
+tauri = { version = "1.0.5", features = ["window-start-dragging"] }
+rand = "0.8.5"
 
 [features]
 default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]
+
+[target.'cfg(target_os = "macos")'.dependencies]
+cocoa = "0.24"
+objc = "0.2.7"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
